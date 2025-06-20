@@ -1,19 +1,19 @@
-﻿namespace finance_api.Dtos
+﻿namespace finance_api.Dtos.ExpenseDtos
 {
-    public class CreateIncomeDto
+    public class CreateExpenseDto
     {
         /// <summary>
-        /// Gets or sets the description of the income.
+        /// Gets or sets the description of the expense.
         /// </summary>
         public string Description { get; set; } = string.Empty;
 
         /// <summary>
-        /// Gets or sets the amount of the income.
+        /// Gets or sets the amount of the expense.
         /// </summary>
         public decimal Amount { get; set; }
 
         /// <summary>
-        /// Gets or sets the date create when the income.
+        /// Gets or sets the date create when the expense.
         /// </summary>
         public DateTime CreateDate { get; set; } = DateTime.Now;
     }

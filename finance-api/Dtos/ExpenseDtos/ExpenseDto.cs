@@ -1,4 +1,4 @@
-﻿namespace finance_api.Dtos
+﻿namespace finance_api.Dtos.ExpenseDtos
 {
     public class ExpenseDto
     {

@@ -1,6 +1,6 @@
 ﻿using finance_api.Models;
 
-namespace finance_api.Services
+namespace finance_api.Services.ExpensiveServices
 {
     public interface IExpenseService
     {
