@@ -1,4 +1,5 @@
-﻿using finance_api.Dtos;
+﻿using finance_api.Dtos.ExpenseDtos;
+using finance_api.Dtos.IncomeDtos;
 using finance_api.Models;
 
 namespace finance_api.Mappings

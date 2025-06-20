@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
-using finance_api.Dtos;
+using finance_api.Dtos.ExpenseDtos;
 using finance_api.Models;
-using finance_api.Services;
+using finance_api.Services.ExpensiveServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace finance_api.Controllers
@@ -19,6 +20,7 @@ namespace finance_api.Controllers
             _mapper = mapper;   
         }
 
+        [Authorize]
         [HttpGet("api/expenses")]
         public async Task<IActionResult> GetAll()
         {
@@ -27,13 +29,15 @@ namespace finance_api.Controllers
             return Ok(result);
         }
 
+        [Authorize]
         [HttpGet("api/expenses/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var expense = await _expenseService.GetByIdAsync(id);
             return expense is null ? NotFound() : Ok(_mapper.Map<ExpenseDto>(expense));
         }
-
+        
+        [Authorize]
         [HttpPost("api/expenses/create")]
         public async Task<IActionResult> Create([FromBody] ExpenseDto dto)
         {
@@ -47,6 +51,7 @@ namespace finance_api.Controllers
             return CreatedAtAction(nameof(GetById), new { id = createdExpense.Id }, _mapper.Map<ExpenseDto>(createdExpense));
         }
 
+        [Authorize]
         [HttpPut("api/expenses/update/{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] ExpenseDto dto)
         {
@@ -63,6 +68,7 @@ namespace finance_api.Controllers
             return NoContent();
         }
 
+        [Authorize]
         [HttpDelete("api/expenses/delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {

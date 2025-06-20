@@ -1,7 +1,7 @@
 ﻿using finance_api.Interfaces;
 using finance_api.Models;
 
-namespace finance_api.Services
+namespace finance_api.Services.ExpensiveServices
 {
     public class ExpenseService : IExpenseService
     {

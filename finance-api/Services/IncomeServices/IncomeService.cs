@@ -2,12 +2,12 @@
 using finance_api.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace finance_api.Services
+namespace finance_api.Services.IncomeServices
 {
     public class IncomeService : IIncomeService
     {
         //Aplica SRP y DIP: los servicios no saben nada del DbContext directamente, solo usan el repositorio.
-        private readonly IGenericRepository<Income> _repository;  
+        private readonly IGenericRepository<Income> _repository;
 
         public IncomeService(IGenericRepository<Income> repository)
         {
