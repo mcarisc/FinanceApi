@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace finance_api.Controllers
 {
+    [Authorize]
     public class ExpenseController : Controller
     {
         // Aquí podrías inyectar un servicio de ExpenseService si lo necesitas
@@ -19,9 +20,8 @@ namespace finance_api.Controllers
             _expenseService = expenseService;
             _mapper = mapper;   
         }
-
-        [Authorize]
-        [HttpGet("api/expenses")]
+        
+        [HttpGet("api/expenses"), Authorize]
         public async Task<IActionResult> GetAll()
         {
             var expenses = await _expenseService.GetAllAsync();
